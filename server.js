@@ -29,6 +29,10 @@ app.post('/register', (req, res) => {
   res.send('Received!');
 });
 
+app.get('/', (req, res) => {
+  res.send('Quiz2Win backend is live!');
+});
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
