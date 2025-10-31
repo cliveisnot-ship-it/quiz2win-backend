@@ -1,0 +1,2 @@
+".env"  rm --cached .env
+".env"  rm --cached .env
