@@ -34,18 +34,20 @@ async function startServer() {
     });
 
     // ✅ Form submission route
-    app.post('/register', async (req, res) => {
-      const { name, email, cellphone, contactMethod } = req.body;
-      console.log('Form data:', req.body);
+app.post('/api/waiting-list', async (req, res) => {
+  const { name, email, cellphone, contactMethod } = req.body;
+  console.log('Form data:', req.body);
 
-      try {
-        await users.insertOne({ name, email, cellphone, contactMethod });
-        res.status(200).json({ message: 'Successfully submitted!' });
-      } catch (err) {
-        console.error('❌ Insert error:', err);
-        res.status(500).json({ message: 'Database error' });
-      }
-    });
+  try {
+    await users.insertOne({ name, email, cellphone, contactMethod });
+    res.status(200).json({ message: 'Successfully submitted!' });
+  } catch (err) {
+    console.error('❌ Insert error:', err);
+    res.status(500).json({ message: 'Database error' });
+  }
+});
+
+
 
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
